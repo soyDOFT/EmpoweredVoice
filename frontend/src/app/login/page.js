@@ -1,4 +1,5 @@
 import TextInput from "@/components/TextInput";
+import GoogleLoginButton from "@/components/GoogleLoginButton"
 
 export default function Page() {
 
@@ -18,7 +19,7 @@ export default function Page() {
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Account</h2>
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <TextInput label='Username' placeholder='example'/>
-                            <TextInput label='Password' placeholder='********'/>                            
+                            <TextInput label='Password' placeholder='********'/>                          
                             <div className="mt-24 flex items-center justify-end gap-x-6">
                                 <button
                                 type="submit"
@@ -29,6 +30,7 @@ export default function Page() {
                         </div>
                     </div>
                 </form>
+                <GoogleLoginButton/>
             </div>
         </div>
     )

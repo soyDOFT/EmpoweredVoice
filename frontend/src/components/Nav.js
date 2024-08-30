@@ -1,6 +1,9 @@
 import Link from 'next/link';
+import { auth } from "../app/_lib/auth"
 
-export default function Nav() {
+export default async function Nav() {
+  const session = await auth();
+
     return (
         <div className="navbar bg-base-100">
           <div className="navbar-start">
@@ -37,7 +40,14 @@ export default function Nav() {
             </ul>
           </div>
           <div className="navbar-end">
-            <Link className="btn" href="/">Button</Link>
+            {session?.user?.image ? 
+            <Link className="btn" href="/account">
+              <img className="h-10 rounded-full" 
+              src={session.user.image} 
+              alt={session.user.name}
+              referrerPolicy='no-referrer'/>
+            </Link> 
+            : <Link className="btn" href="/account">Login</Link>}
           </div>
         </div>
     )
