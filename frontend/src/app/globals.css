@@ -1,3 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Prata&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.font-Prata {
+    font-family: 'Prata', serif;
+  }
+  
+  .font-AntonSC {
+    font-family: 'Anton SC', sans-serif;
+  }
+
+  .btn-primary {
+    background-color: #0368fe;
+    border: none;
+}
+
+.navbar {
+    background: transparent;
+    position: fixed;
+    z-index: 1000;
+    transition: background-color 0.5s ease;
+    
+}
+
+.main-text {
+    height: 80vh;
+}
