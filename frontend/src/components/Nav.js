@@ -28,6 +28,7 @@ export default async function Nav() {
                 <li><Link href="/civics">Civics</Link></li>
                 <li><Link href="/about">About</Link></li>
                 <li><Link href="/register">Register</Link></li>
+                <li><Link href="/candidates">Candidates</Link></li>
               </ul>
             </div>
             <Link className="btn btn-ghost text-xl" href="/">EmpoweredVoice</Link>
@@ -37,6 +38,7 @@ export default async function Nav() {
               <li><Link href="/civics">Civics</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/register">Register</Link></li>
+              <li><Link href="/candidates">Candidates</Link></li>
             </ul>
           </div>
           <div className="navbar-end">
