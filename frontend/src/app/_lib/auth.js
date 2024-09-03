@@ -1,7 +1,7 @@
 import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { verifyPassword } from "./hash";
+// import { verifyPassword } from "./hash";
 
 const authConfig = {
     providers: [
