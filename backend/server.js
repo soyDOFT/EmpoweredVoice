@@ -31,7 +31,7 @@ router.get('/accounts', async (req, res) => {
     try {
         const [ rows ] = await connection.promise().execute(query, inserts);
         console.log('rows2', rows);
-        res.status(200).json(rows[0]);
+        res.status(200).json(rows.length > 0 ? rows[0] : {});
     } catch (err) {
         console.error('Error fetching user', err);
         throw err;
@@ -47,7 +47,7 @@ router.get('/accounts/signin', async (req, res) => {
         const [rows] = await connection.promise().execute(query, inserts);
         console.log('rows', rows);
         if (rows.length > 0) {
-            res.status(200).json(rows[0]);
+            res.status(200).json(rows.length > 0 ? rows[0] : {});
         } else {
             res.status(404).json({ error: 'Invalid credentials' });
         }
@@ -61,6 +61,21 @@ router.get('/accounts/signup', async (req, res) => {
     const { email, password } = req.query;
     const query = `INSERT INTO ${TABLE} (email, password) VALUES (?, ?)`;
     const inserts = [email, password]
+    try {
+        const result = await connection.promise().query(query, inserts);
+        res.status(200).json(result);
+    } catch (err) {
+        console.error('Error creating user', err);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+})
+
+router.get('/accounts/signup/google', async (req, res) => {
+    const { firstname, lastname, email, picture } = req.query;
+    console.log(req.query);
+    console.log(firstname, lastname, email, picture);
+    const query = `INSERT INTO ${TABLE} (first_name, last_name, email, password, profile_image_path, role) VALUES (?, ?, ?, null, ?, 'user')`;
+    const inserts = [firstname, lastname, email, picture]
     try {
         const result = await connection.promise().query(query, inserts);
         res.status(200).json(result);
