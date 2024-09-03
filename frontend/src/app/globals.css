@@ -17,17 +17,14 @@ body {
 
 
 
-
-.navbar {
-    background: transparent;
-    position: fixed;
+  .navbar {
+    position: fixed ;
+    width: 100%;
     z-index: 1000;
-    transition: background-color 0.5s ease;
-    
 }
 
 .main-text {
-    height: 80vh;
+    height: 100vh;
 }
 
 .card {
