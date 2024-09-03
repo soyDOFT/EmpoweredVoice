@@ -15,7 +15,7 @@ async function getCandidates(page = 1, perPage = 20) {
       is_active_candidate: 'true',
       page: page,
       per_page: perPage,
-      state: 'CA',
+      state: 'NC',
       sort: 'party',
       year: '2024',  
     });

@@ -38,6 +38,9 @@ export default function Page() {
                 <div className="flex gap-2">
                   <span className="text-slate-500 text-sm">{candidate.incumbent_challenge_full}</span>
                 </div>
+                <div className="flex gap-2">
+                  <span className="text-slate-500 text-sm">{candidate.office_full}</span>
+                </div>
               </section>
             </div>
           ))}
