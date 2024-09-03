@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="main-text flex flex-col items-center justify-center bg-hero bg-cover bg-center h-screen">
+      <div className="main-text flex flex-col items-center justify-center bg-hero bg-cover bg-center z-10">
         <div className="hero-content text-center mb-12">
           <div className="max-w-100vw px-4">
             <h1 className="text-6xl text-white font-bold mb-6">
