@@ -4,6 +4,7 @@ import Card from "@/components/Cards";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { useEffect } from "react";
+import Map from "@/components/Map/Map";
 
 export default function Home() {
   useEffect(() => {
@@ -61,6 +62,7 @@ export default function Home() {
           Join Us
         </button>
       </section>
+      <Map />
     </>
   );
 }
