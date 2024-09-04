@@ -1,6 +1,7 @@
 'use server';
 import { redirect } from 'next/navigation';
-import { signIn, signOut } from '@/app/_lib/auth'
+import { revalidatePath } from 'next/cache';
+import { auth, signIn, signOut } from '@/app/_lib/auth'
 import { hashPassword, verifyPassword } from './hash';
 
 export async function credSignIn(prevState, formData) {
@@ -34,7 +35,7 @@ export async function credSignIn(prevState, formData) {
     }
 
     if (!isValidLogin) {
-        errors.credentials = 'Invalid Credentials!!!';
+        errors.credentials = 'Invalid Credentials';
         return { errors };
     }
     console.log('no errors');
@@ -83,3 +84,26 @@ export async function signup(prevState, formData) {
 
     redirect('/account');
 }
+
+export async function updateClient(formData) {
+    const session = await auth();
+    if (!session) throw new Error("You must be logged in");
+    
+    const state = formData.get("state");
+    const city = formData.get("city");
+    const email = formData.get("email");
+    console.log(state, city, email);
+    
+    try {
+        console.log('updating client')
+        const url = `http://localhost:8080/api/update/account?state=${encodeURIComponent(state)}&city=${encodeURIComponent(city)}&email=${email}`;
+        console.log(url)
+        const result = await fetch(url);
+        const answer = await result.json();
+        console.log('answer', answer);
+    } catch (err) {
+        throw new Error("Guest could not be updated");
+    }
+
+    revalidatePath("/account");
+  }
