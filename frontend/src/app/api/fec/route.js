@@ -1,12 +1,11 @@
-
 import { NextResponse } from 'next/server';
 
-async function getCandidates(page = 1, perPage = 20) {
+async function getCandidates(state = '', page = 1, perPage = 20) {
   try {
     const apiKey = process.env.OPENFEC_API_KEY;
     const baseUrl = 'https://api.open.fec.gov/v1/candidates/';
-    
-    //Building the API Request URL
+
+    // Building the API Request URL
     const params = new URLSearchParams({
       api_key: apiKey,
       election_year: '2024',
@@ -15,14 +14,14 @@ async function getCandidates(page = 1, perPage = 20) {
       is_active_candidate: 'true',
       page: page,
       per_page: perPage,
-      state: 'NC',
+      state: state,
       sort: 'party',
-      year: '2024',  
+      year: '2024',
     });
 
     const url = `${baseUrl}?${params.toString()}`;
 
-    //Making the API Request
+    // Making the API Request
     const response = await fetch(url);
     const data = await response.json();
 
@@ -33,26 +32,31 @@ async function getCandidates(page = 1, perPage = 20) {
   }
 }
 
-export async function GET() {
+export async function POST(req) {
   try {
+    const { state } = await req.json();
 
-    //Handling Multiple Pages
+    if (!state) {
+      return NextResponse.json({ error: 'State is required' }, { status: 400 });
+    }
+
+    // Handling Multiple Pages
     const candidates = await Promise.all(
       Array.from({ length: 5 }, (_, i) => 
-        getCandidates(i + 1)
+        getCandidates(state, i + 1)
       )
     );
 
-    //Combining the candidates from the pages
+    // Combining the candidates from the pages
     const combinedCandidates = candidates.flat();
 
-    //Constructing the Response
+    // Constructing the Response
     return NextResponse.json({
       candidates: combinedCandidates,
       totalResults: combinedCandidates.length,
       currentPage: 1,
       totalPages: Math.ceil(combinedCandidates.length / 20),
-      hasMorePages: false
+      hasMorePages: true,
     });
   } catch (error) {
     console.error('Error processing candidates:', error);
