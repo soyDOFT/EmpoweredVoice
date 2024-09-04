@@ -1,37 +1,19 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
+import Countdown from '@/components/Countdown';
 
 export default function Page() {
   const [candidates, setCandidates] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [state, setState] = useState('');
-  const [counter, setCounter] = useState(99);  
-  // Update countdown value
-  const countdownRef = useRef(null);
-
-  useEffect(() => {
-    if (countdownRef.current) {
-      const validValue = Math.max(0, Math.min(99, counter));
-      countdownRef.current.style.setProperty('--value', validValue);
-    }
-  }, [counter]);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCounter(prevCounter => (prevCounter > 0 ? prevCounter - 1 : 0));
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, []);
 
   const currentPresidentialCandidates = [
     { name: 'Kamala Harris', party: 'Democratic', state: 'CA', office: 'President', imageUrl: '/presidential-candidates/kamala.webp', description: 'Current Vice President of the United States.' },
     { name: 'Donald Trump', party: 'Republican', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/donald-trump.jpg', description: 'Former President of the United States.' },
     { name: 'Chase Oliver', party: 'Libertarian', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/chase-oliver.png', description: 'Libertarian candidate for President in 2024.' },
     { name: 'Jill Stein', party: 'Green', state: 'MA', office: 'President', imageUrl: '/presidential-candidates/jill-stein.jpg', description: 'Former Green Party candidate for President and environmental activist.' },
-    { name: 'Cornel West', party: 'Independent', state: 'NY', office: 'President', imageUrl: '/presidential-candidates/cornel-west.webp', description: 'Independent candidate and prominent philosopher.' },
     // Add other candidates here
   ];
 
@@ -59,41 +41,14 @@ export default function Page() {
   return (
     <>
       <div className="flex w-full flex-col">
-        {/* Hard-coded presidential candidates section */}
         <div className="candidate-hero flex flex-col justify-center items-center text-white text-2xl h-48">
         <h2 className='text-7xl text-center mb-8'>Countdown to the <br></br>2024 presidential election</h2>
-          <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": 61 }}></span>
-              </span>
-              days
-            </div>
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": 21 }}></span>
-              </span>
-              hours
-            </div>
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl">
-                <span style={{ "--value": 24 }}></span>
-              </span>
-              min
-            </div>
-            <div className="flex flex-col">
-              <span className="countdown font-mono text-5xl" ref={countdownRef}>
-                <span></span>
-              </span>
-              sec
-            </div>
-          </div>
-          <button className="btn  text-white border-none bg-primary mt-4  max:mt-20 max:w-40 max:text-2xl hover:bg-secondary hover:text-white">Meet the candidates</button>
+        <Countdown />
+          <button className="btn  text-white border-none bg-primary mt-4  max:mt-20 max:w-40 max:text-2xl hover:bg-[#0367feb6] hover:text-white">Meet the candidates</button>
         </div>
-
-        <div className="grid grid-cols-3 gap-4 p-4">
+        <div className="grid justify-items-center grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-1 mt-14 mb-14   ">
           {currentPresidentialCandidates.map((candidate, index) => (
-            <div key={index} className="card bg-base-100 w-96 shadow-xl">
+            <div key={index} className="card bg-base-100 w-80 shadow-xl">
               <figure className="px-10 pt-10">
                 <img
                   src={candidate.imageUrl}
@@ -109,21 +64,33 @@ export default function Page() {
             </div>
           ))}
         </div>
+        <div className="flex w-full flex-col lg:flex-row my-14">
+          <div className="card rounded-box grid h-32 flex-grow place-items-center text-secondary text-2xl  ">          
+            <h1>Search Candidates running for office in your state</h1>
+            <div className="card bg-page rounded-box grid flex-grow place-items-center">
+          <div class="relative mt-6">
+            <form onSubmit={handleSubmit}>
+            <input type="text" placeholder="NC" value={state} onChange={(e) => setState(e.target.value)} class="block w-full rounded-2xl border border-secondary bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"/>
+            <div class="absolute inset-y-1 right-1 flex justify-end">
+          <button type="submit" aria-label="Submit" class="flex aspect-square h-full items-center justify-center rounded-xl bg-primary text-white transition hover:bg-secondary">
+            <svg viewBox="0 0 16 6" aria-hidden="true" class="w-4">
+              <path
+                fill="currentColor"
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M16 3 10 .5v2H0v1h10v2L16 3Z"
+              ></path>
+            </svg>
+          </button>
+            </div>  
+            </form>
 
-        <div className="bg-secondary text-white text-2xl h-96 grid place-items-center mt-8">
-          <h1>Meet the Candidates running for office in your state</h1>
+          </div>
+         </div>
+          </div>
+
         </div>
-        <div className="divider"></div>
-
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            placeholder="Enter state abbreviation (e.g., NC)"
-            value={state}
-            onChange={(e) => setState(e.target.value)}
-          />
-          <button type="submit">Submit</button>
-        </form>
+    
 
         {loading ? (
           <>
@@ -138,7 +105,7 @@ export default function Page() {
         ) : error ? (
           <p>{error}</p>
         ) : (
-          <div className="grid grid-cols-3 gap-4">
+          <div className="grid grid-cols-3 gap-4 justify-items-center">
             {candidates.map((candidate) => (
               <div key={candidate.id} className="flex flex-col items-center bg-white w-72 h-auto pt-5 pb-7 border border-gray-200 rounded-lg space-y-8">
                 <section className="flex flex-col text-center space-y-1">
