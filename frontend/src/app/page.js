@@ -16,7 +16,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="main-text flex flex-col items-center justify-center bg-hero bg-cover bg-center h-screen">
+      <div className="main-text flex flex-col items-center justify-center bg-hero bg-cover bg-center z-10">
         <div className="hero-content text-center mb-12">
           <div className="max-w-100vw px-4">
             <h1 className="text-6xl text-white font-bold mb-6">
@@ -43,20 +43,20 @@ export default function Home() {
           image="improve-elections.webp" 
         />
         <Card 
-          title="Find your representatives" 
+          title="Find your Candidate" 
           paragraph="This is a description for card 3." 
           image="find-your.jpeg" 
         />
         <Card 
-          title="Find your polling place" 
-          paragraph="This is a custom description for card 4." 
+          title="Election registration" 
+          paragraph="This is a description for card 4." 
           image="election-registration.jpg" 
         />
       </div>
       <section data-aos="fade-up" className="join-section flex flex-row justify-center items-center flex-wrap py-12 w-screen h-screen max:flex-col">
         <div className="container bg-offwhite h-56 w-2/6 shadow-[-16px_15px_0px_0px_#0368fe;] mr-9 md:h-fit phoneMax:h-fit max:w-4/5">
           <h2 className="text-4xl font-bold text-center max:max-w-[75vmin] my-10">
-            To become a League member, join one of the 700+ state and local Leagues
+            Become a part of the movement to empower voters and strengthen democracy in North Carolina.
           </h2>
         </div>
         <button className="btn text-xl text-white border-none bg-primary max:mt-20 max:w-40 max:text-2xl hover:bg-secondary hover:text-white">

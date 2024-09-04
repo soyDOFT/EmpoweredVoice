@@ -5,7 +5,7 @@ export default async function Nav() {
   const session = await auth();
 
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-page opacity-80">
           <div className="navbar-start">
             <div className="dropdown">
               <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -24,17 +24,19 @@ export default async function Nav() {
               </div>
               <ul
                 tabIndex={0}
-                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow">
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-secondary">
                 <li><Link href="/civics">Civics</Link></li>
                 <li><Link href="/about">About</Link></li>
                 <li><Link href="/register">Register</Link></li>
                 <li><Link href="/candidates">Candidates</Link></li>
               </ul>
             </div>
-            <Link className="btn btn-ghost text-xl" href="/">EmpoweredVoice</Link>
+            <Link className=" text-xl" href="/">
+              <img className="h-24" src="/EV-logo.svg" alt="logo" />
+            </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
-            <ul className="menu menu-horizontal px-1">
+            <ul className="menu menu-horizontal px-1 text-xl">
               <li><Link href="/civics">Civics</Link></li>
               <li><Link href="/about">About</Link></li>
               <li><Link href="/register">Register</Link></li>
@@ -49,7 +51,7 @@ export default async function Nav() {
               alt={session.user.name}
               referrerPolicy='no-referrer'/>
             </Link> 
-            : <Link className="btn" href="/account">Login</Link>}
+            : <Link className="btn text-white border-none bg-primary hover:bg-secondary hover:text-white" href="/account">Login</Link>}
           </div>
         </div>
     )
