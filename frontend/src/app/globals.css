@@ -21,10 +21,10 @@ body {
     width: 100%;
 }
 
-.card {
+.cards {
     box-shadow: -16px 15px 0px 0px #0368fe;
   }
-.card:hover {
+.cards:hover {
   box-shadow: -16px 15px 0px 0px #d8d8d8;
 }
 
@@ -32,4 +32,9 @@ body {
   background: url('/grrey.png') no-repeat center center/cover;
   width: 100vw;
   height:  70vh;
+}
+
+.candidate-hero{
+  background: url('/hero-candidate.svg') no-repeat center center/cover;
+  height: 85vh;
 }
