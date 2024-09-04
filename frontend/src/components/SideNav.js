@@ -12,7 +12,7 @@ import { usePathname } from "next/navigation";
 const navLinks = [
   {
     name: "Home",
-    href: "/account",
+    href: "/account/home",
     icon: <HomeIcon className="h-5 w-5 text-primary-600" />,
   },
   {
@@ -22,7 +22,7 @@ const navLinks = [
   },
   {
     name: "Profile",
-    href: "/account/profile",
+    href: "/account",
     icon: <UserIcon className="h-5 w-5 text-primary-600" />,
   },
 ];

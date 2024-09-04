@@ -85,4 +85,18 @@ router.get('/accounts/signup/google', async (req, res) => {
     }
 })
 
+router.get('/update/account', async (req, res) => {
+    console.log('updating account')
+    const { state, city, email } = req.query;
+    const query = `UPDATE ${TABLE} SET state = ?, city = ? WHERE email = ?`;
+    const inserts = [state, city, email]
+    try {
+        const result = await connection.promise().query(query, inserts);
+        res.status(200).json(result);
+    } catch (err) {
+        console.error('Error updating user', err);
+        res.status(500).json({error: 'Internal server error'});
+    }
+})
+
 app.listen(PORT, () => console.log(`Listening on port ${PORT}`));
