@@ -18,7 +18,7 @@ export async function credSignIn(prevState, formData) {
     }
 
     if (Object.keys(errors).length > 0) {
-        return {errors};
+        return { errors };
     }
 
     const response = await fetch(`http://localhost:8080/api/accounts?email=${email}`);
@@ -28,11 +28,14 @@ export async function credSignIn(prevState, formData) {
     }
     const account = await response.json();
     console.log('fmkasdl', account)
-    const isValidLogin = verifyPassword(account.password, password);
+    let isValidLogin = false;
+    if (account.password) {
+        isValidLogin = verifyPassword(account.password, password);
+    }
 
     if (!isValidLogin) {
         errors.credentials = 'Invalid Credentials!!!';
-        return {errors};
+        return { errors };
     }
     console.log('no errors');
 
@@ -41,11 +44,11 @@ export async function credSignIn(prevState, formData) {
 }
 
 export async function googleSignInAction() {
-    await signIn('google', {redirectTo: "/account"});
+    await signIn('google', { redirectTo: "/account" });
 }
 
 export async function signOutAction() {
-    await signOut({redirectTo: "/"});
+    await signOut({ redirectTo: "/" });
 }
 
 export async function signup(prevState, formData) {
@@ -63,10 +66,10 @@ export async function signup(prevState, formData) {
     }
 
     if (Object.keys(errors).length > 0) {
-        return {errors};
+        return { errors };
     }
 
-    
+
     try {
         await fetch(`http://localhost:8080/api/accounts?email=${email}`);
     } catch (err) {
