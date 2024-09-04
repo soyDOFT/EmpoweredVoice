@@ -16,11 +16,11 @@ export default function Page() {
                     <div className='space-y-12'>
                         <div className="border-b border-gray-900/10 pb-12">
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Account</h2>
-                        {/* {credSignInState.errors && (
+                        {credSignInState.errors && (
                         <ul>
                             {Object.keys(credSignInState.errors).map((err) => <li className='text-red-600' key={err}>{credSignInState.errors[err]}</li>)}
                         </ul>
-                        )} */}
+                        )}
                         <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <TextInput label='Email' placeholder='example@example.com'/>
                             <PasswordInput/>                          
