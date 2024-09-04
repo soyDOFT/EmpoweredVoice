@@ -4,7 +4,7 @@ export default function Card({ title, paragraph, image }) {
   return (
     <a
       href="#"
-      className=" group relative block max-w-screen-sm mx-auto h-64 sm:h-80 lg:h-96 "
+      className="group relative block max-w-screen-sm mx-auto h-64 sm:h-80 lg:h-96 "
     >
         {/* Card */}
       <div className=" card relative flex h-full w-60 transform items-end border-2 border-none	 rounded-sm bg-white transition-transform group-hover:scale-105 overflow-hidden">

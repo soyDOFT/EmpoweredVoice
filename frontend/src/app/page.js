@@ -16,20 +16,18 @@ export default function Home() {
 
   return (
     <>
-      <div className="main-text flex flex-col items-center justify-center bg-hero bg-cover bg-center z-10">
-        <div className="hero-content text-center mb-12">
-          <div className="max-w-100vw px-4">
+      <div className="main-text flex flex-row items-center  justify-center bg-secondary h-[76vh] w-screen max:flex-wrap max:h-fit">
+        <div className=" hero-content text-start mb-1 relative left-20">
+          <div className=" h-[50vh] p-5 w-[70%] px-4 " >
             <h1 className="text-6xl text-white font-bold mb-6">
-              Empowering Voices
+              EMPOWERED VOICE
             </h1>
             <p className="py-8 text-white">
-              Empowering Voices is a nonpartisan platform committed to enhancing voter knowledge and participation in North Carolina. Our mission is to provide accurate and accessible voting information to help citizens make informed choices at the polls. Through education, outreach, and advocacy, we aim to empower every voter and strengthen our democracy, ensuring that all voices are heard and represented in the electoral process.
+              Empowered Voice is a nonpartisan platform committed to enhancing voter knowledge and participation in North Carolina. Our mission is to provide accurate and accessible voting information to help citizens make informed choices at the polls. Through education, outreach, and advocacy, we aim to empower every voter and strengthen our democracy, ensuring that all voices are heard and represented in the electoral process.
             </p>
-            <button className="btn text-white border-none bg-primary hover:bg-secondary hover:text-white">
-              Get Started
-            </button>
           </div>
         </div>
+        <img src="/statue-3.png" alt="hero-image" className="object-contain h-[100%]" />
       </div>
       <div data-aos="fade-zoom-in" data-aos-easing="ease-in-back" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 mt-10 mb-12 mobileS:gap-9">
         <Card 
