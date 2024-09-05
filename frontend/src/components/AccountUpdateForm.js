@@ -50,16 +50,16 @@ export default function AccountUpdateForm({ client }) {
           <input
             defaultValue={state}
             name="state"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
           />
       </div>
 
       <div className="space-y-2">
           <label htmlFor="city">What city are you from?</label>
           <input
-            defaultValue={city}
+            value={city}
             name="city"
-            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-600 disabled:text-gray-400"
+            className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
           />
       </div>
 
