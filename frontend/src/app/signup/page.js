@@ -15,7 +15,7 @@ export default function Page() {
                 <form id="signup-form" action={signUpAction}>
                     <div className='space-y-12'>
                         <div className="border-b border-gray-900/10 pb-12">
-                        <h2 className="text-base font-semibold leading-7 text-gray-900">Create an Account</h2>
+                        <h2 className="text-4xl font-semibold leading-7 text-secondary">Create an Account</h2>
                         {signUpState.errors && (
                         <ul>
                             {Object.keys(signUpState.errors).map((err) => <li className='text-red-600' key={err}>{signUpState.errors[err]}</li>)}
@@ -28,11 +28,11 @@ export default function Page() {
                             <div className="mt-24 flex items-center justify-end gap-x-6">
                                 <button
                                 type="submit"
-                                className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                                className="rounded-md  bg-primary w-72 px-3 py-2 text-sm font-semibold text-white shadow-sm  hover:bg-[#1803fe] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
                                 >Sign Up</button>
                             </div>
                         </div>
-                        <Link href="/login">Login with existing account</Link>
+                        <Link href="/login"  className=' text-secondary text-md hover:underline hover:text-primary'>Login with existing account</Link>
                         </div>
                     </div>
                 </form>
