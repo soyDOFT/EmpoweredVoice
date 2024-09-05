@@ -35,7 +35,7 @@ export default function Countdown() {
         }, 1000);
     
         return () => clearInterval(interval);
-      }, [electionDate]);
+      }, []);
 
   return (
     <div className="grid grid-flow-col gap-5 text-center auto-cols-max">
