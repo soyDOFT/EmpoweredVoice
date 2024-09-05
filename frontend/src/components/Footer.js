@@ -2,10 +2,10 @@ import Link from 'next/link';
 
 export default function Footer() {
     return (
-<footer className="footer bg-base-200 text-base-content p-10">
+<footer className="footer bg-base-200 text-base-content p-10 320Max:p-0 320Max:pl-5">
   <aside>
     <img
-      src="/ev-logo.svg" alt="Company Logo" className="h-32"
+      src="/ev-logo.svg" alt="Company Logo" className="h-32 320Max:h-20"
     />
   </aside>
   <nav>
@@ -23,7 +23,7 @@ export default function Footer() {
   </nav>
   <form>
     <h6 className="footer-title">Newsletter</h6>
-    <fieldset className="form-control w-80">
+    <fieldset className="form-control w-80 320Max:w-52">
       <label className="label">
         <span className="label-text">Enter your email address</span>
       </label>
@@ -31,7 +31,7 @@ export default function Footer() {
         <input
           type="text"
           placeholder="username@site.com"
-          className="input input-bordered join-item" />
+          className="input input-bordered join-item 320Max:w-3/5 " />
         <button className="btn btn-primary join-item">Subscribe</button>
       </div>
     </fieldset>

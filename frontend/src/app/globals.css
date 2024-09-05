@@ -4,6 +4,10 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
     background-color: #eef3f6;
 }
@@ -26,12 +30,6 @@ body {
   }
 .cards:hover {
   box-shadow: -16px 15px 0px 0px #d8d8d8;
-}
-
-.join-section {
-  background: url('/grrey.png') no-repeat center center/cover;
-  width: 100vw;
-  height:  70vh;
 }
 
 .candidate-hero{
