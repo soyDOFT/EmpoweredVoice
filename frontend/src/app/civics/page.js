@@ -1,4 +1,11 @@
+'use client'
+
+import { useVoteAmericaEmbed } from '@/hooks/useVoteAmericaEmbed';
+
 export default function Page() {
+    
+    useVoteAmericaEmbed()
+
     return (
         <div className="bg-gray-100 text-gray-900">
             <nav className="bg-blue-200 p-4">
@@ -94,6 +101,7 @@ export default function Page() {
                     </ul>
                 </section>
             </main>
+            <div class="voteamerica-embed" data-subscriber="public" data-tool="upcoming"></div>
         </div>
     );
 } 
