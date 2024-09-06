@@ -14,8 +14,8 @@ export default async function Nav() {
               <ul
                 tabIndex={0}
                 className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-secondary">
-                <li><Link href="/civics">Civics</Link></li>
                 <li><Link href="/about">About</Link></li>
+                <li><Link href="/elections">Elections</Link></li>
                 <li><Link href="/register">Register</Link></li>
                 <li><Link href="/candidates">Candidates</Link></li>
               </ul>
@@ -26,8 +26,8 @@ export default async function Nav() {
           </div>
           <div className="navbar-center hidden lg:flex">
             <ul className="menu menu-horizontal px-1 text-xl">
-              <li><Link href="/civics">Civics</Link></li>
               <li><Link href="/about">About</Link></li>
+              <li><Link href="/elections">Elections</Link></li>
               <li><Link href="/register">Register</Link></li>
               <li><Link href="/candidates">Candidates</Link></li>
             </ul>

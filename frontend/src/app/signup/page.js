@@ -39,27 +39,5 @@ export default function Page() {
                 <GoogleLoginButton/>
             </div>
         </div>
-
-        // <div>
-        //     <form id="signup-form" action={signUpAction}>
-        //         
-        //         <p>
-        //             <label htmlFor="email">Email</label>
-        //             <input type="email" name="email" id="email" />
-        //         </p>
-        //         <p>
-        //             <label htmlFor="password">Password</label>
-        //             <input type="password" name="password" id="password" />
-        //         </p>
-        //         <p>
-        //             <button type="submit">
-        //             Create Account
-        //             </button>
-        //         </p>
-        //         <p>
-        //             <Link href="/">Login with existing account.</Link>
-        //         </p>
-        //     </form>
-        // </div>
     )
 }
