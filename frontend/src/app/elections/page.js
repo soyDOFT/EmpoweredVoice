@@ -89,13 +89,12 @@ export default function Page() {
             const civicData = await response.json();
             setOfficials(civicData.officials);
             setOffices(civicData.offices);
-            setLocation(civicData.normalizedInput.state);
+            setState(stateAbbr[civicData.normalizedInput.state]);
             console.log('fetch api done')
         } catch (err) {
             setError('Error finding address. Please try again.');
         } finally {
             setLoading(false);
-            setState(stateAbbr[location]);
             getDates();
             console.log('loading done...')
           }
@@ -212,9 +211,9 @@ export default function Page() {
                     <h2 className="text-2xl font-semibold mb-2">Urgent Dates</h2>
                     {electionDates.length > 0 ? 
                     <ul>
-                        {electionDates.map((election) => (
+                        {electionDates.map((election, i) => (
                             election.location == state && ( 
-                            <li key={election.event_id}>
+                            <li key={election.event_id + election.start_date + i}>
                                 <p>{election.start_date}: {election.description} {election.summary} </p>
                             </li>
                         )))}
