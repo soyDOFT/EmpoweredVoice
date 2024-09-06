@@ -20,7 +20,7 @@ export default function Footer() {
   };
 
     return (
-<footer className="footer bg-base-200 text-base-content p-10 320Max:p-0 320Max:pl-5">
+<footer className="footer bg-page text-base-content p-10 320Max:p-0 320Max:pl-5 shadow-2xl ">
   <aside>
     <img
       src="/ev-logo.svg" alt="Company Logo" className="h-32 320Max:h-20"

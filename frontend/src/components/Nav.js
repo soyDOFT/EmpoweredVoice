@@ -21,7 +21,7 @@ export default async function Nav() {
               </ul>
             </div>
             <Link className=" text-xl" href="/">
-              <img className="h-24" src="/EV-logo.svg" alt="logo" />
+              <img className="h-24" src="/ev-logo.svg" alt="logo" />
             </Link>
           </div>
           <div className="navbar-center hidden lg:flex">
