@@ -8,8 +8,7 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero': "url('/wave-haikei.svg)",
-        'join': "url('/join.jpg')",
+        'hero-paper': "url('/paper.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
