@@ -1,6 +1,24 @@
+'use client';
 import Link from 'next/link';
+import { useState } from 'react';
 
 export default function Footer() {
+  const [email, setEmail] = useState('');
+
+  async function handleSubscribe(e) {
+    e.preventDefault();
+    const response = await fetch('/api/notifications/subscribe', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email }),
+    });
+  
+    const data = await response.json();
+    console.log(data);
+  };
+
     return (
 <footer className="footer bg-page text-base-content p-10 320Max:p-0 320Max:pl-5 shadow-2xl ">
   <aside>
@@ -21,7 +39,7 @@ export default function Footer() {
     <a className="link link-hover">Privacy policy</a>
     <a className="link link-hover">Cookie policy</a>
   </nav>
-  <form>
+  <form onSubmit={handleSubscribe}>
     <h6 className="footer-title">Newsletter</h6>
     <fieldset className="form-control w-80 320Max:w-52">
       <label className="label">
@@ -29,6 +47,7 @@ export default function Footer() {
       </label>
       <div className="join">
         <input
+          onChange={e => setEmail(e.target.value)}
           type="text"
           placeholder="username@site.com"
           className="input input-bordered join-item 320Max:w-3/5 " />

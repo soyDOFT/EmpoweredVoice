@@ -39,7 +39,6 @@ export default function AccountUpdateForm({ client }) {
         <input
           disabled
           defaultValue={email}
-          value={email}
           name="email"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
         />
@@ -57,7 +56,7 @@ export default function AccountUpdateForm({ client }) {
       <div className="space-y-2">
           <label htmlFor="city">What city are you from?</label>
           <input
-            value={city}
+            defaultValue={city}
             name="city"
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
           />
