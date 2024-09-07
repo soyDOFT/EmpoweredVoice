@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import Navigation from '../components/Nav'
 import Footer from '../components/Footer'
+import ChatPopup from "@/components/chat/ChatPopup";
 
 
 const inter = Inter({ subsets: ["latin"] });
@@ -19,6 +20,7 @@ export default function RootLayout({ children }) {
           {children}
         </main>
         <Footer />
+        <ChatPopup />
       </body>
     </html>
   );
