@@ -1,26 +1,23 @@
 import { auth } from "@/app/_lib/auth";
-import AccountUpdateForm from '@/components/AccountUpdateForm'
 
 export const metadata = {
   title: "Guest area",
 };
 
-export default async function Page() {
-    const session = await auth();
-    const response = await fetch('http://localhost:8080/api/accounts?email=' + session.user.email);
-    const client = await response.json();
-    console.log('client', client);
+export default async function Page({ children }) {
+  const session = await auth();
+  const response = await fetch('http://localhost:8080/api/accounts?email=' + session.user.email);
+  const client = await response.json();
 
-    const name = session.user.email;
-    console.log('sesh',session);
-    console.log(session.user);
-
+  const name = session.user.email;
+  //session.user.role = client.role;
+  console.log('sesh2', session);
   return (
     <div>
-        <h2 className="font-semibold text-2xl text-accent-400 mb-7">
+      <h2 className="font-semibold text-2xl text-accent-400 mb-7">
         Welcome, {name}
-        </h2>
-        <AccountUpdateForm client={client}/>
+      </h2>
+      {children}
     </div>
   );
 }
