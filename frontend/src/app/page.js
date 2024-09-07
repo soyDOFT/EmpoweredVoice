@@ -24,7 +24,7 @@ export default function Home() {
             <h1 className="text-6xl text-white font-bold mb-6 500Max:text-5xl 400max:text-4xl 400max:text-center">
               EMPOWERED VOICE
             </h1>
-            <p className="py-8 text-white">
+            <p className="py-8 text-white leading-7">
               Empowered Voice is a nonpartisan platform committed to enhancing voter knowledge and participation in North Carolina. Our mission is to provide accurate and accessible voting information to help citizens make informed choices at the polls. Through education, outreach, and advocacy, we aim to empower every voter and strengthen our democracy, ensuring that all voices are heard and represented in the electoral process.
             </p>
           </div>

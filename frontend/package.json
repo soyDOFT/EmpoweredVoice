@@ -9,13 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@ai-sdk/openai": "^0.0.56",
     "@heroicons/react": "^2.1.5",
+    "ai": "^3.3.28",
     "aos": "^2.3.4",
     "aws-sdk": "^2.1690.0",
     "next": "14.2.7",
     "next-auth": "^5.0.0-beta.20",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "daisyui": "^4.12.10",
