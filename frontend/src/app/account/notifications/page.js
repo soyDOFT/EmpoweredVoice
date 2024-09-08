@@ -6,8 +6,6 @@ import PhoneInput from '@/components/PhoneInput'
 
 export default async function page() {
     const session = await auth();
-    console.log('notifs', session);
-
     return (
         <div>
             <h2 className="text-base font-semibold leading-7 text-gray-900">Notifications</h2>

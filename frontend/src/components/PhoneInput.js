@@ -42,7 +42,6 @@ export default function PhoneInput() {
             onChange={handleChange}/>
         </div>
         }
-        {console.log('sub state', errors)}
         {errors && (
             <ul>
                 {Object.keys(errors).map((err) => <li className='text-red-600' key={err}>{errors[err]}</li>)}

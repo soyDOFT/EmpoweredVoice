@@ -76,9 +76,7 @@ export default function Page() {
     async function handleSubmit(e) {
         e.preventDefault();
         setLoading(true);
-        console.log('handling...')
         try {
-            console.log(address);
             const response = await fetch('/api/civicinfo', {
               method: 'POST',
               headers: {
@@ -90,13 +88,11 @@ export default function Page() {
             setOfficials(civicData.officials);
             setOffices(civicData.offices);
             setState(stateAbbr[civicData.normalizedInput.state]);
-            console.log('fetch api done')
         } catch (err) {
             setError('Error finding address. Please try again.');
         } finally {
             setLoading(false);
             getDates();
-            console.log('loading done...')
           }
     }
 
@@ -109,7 +105,6 @@ export default function Page() {
             body: JSON.stringify({ address }),
           });
           const data = await response.json();
-          console.log('data', data)
           setElectionDates(data.dates);
     }
 
@@ -180,8 +175,6 @@ export default function Page() {
                     <p>{error}</p>
                     ) : (
                     <div className="grid grid-cols-1 sm:grid-cols-2  lg:grid-cols-4  gap-4 justify-items-center my-14">
-                        {console.log(officials)}
-                        {console.log(offices)}
                         {officials.map((official, i) => (
                         <div key={official.name + official.phones[0]} className="flex flex-col items-center bg-white w-72 h-auto pt-5 pb-7 border border-gray-200 rounded-lg space-y-8">
                             <section className="flex flex-col text-center space-y-1">
@@ -189,17 +182,17 @@ export default function Page() {
                                 {official.name}
                             </h3>
                             <div className="flex gap-2">
-                                <span className="text-slate-500 text-sm">{offices.find(office => office.officialIndices.includes(i)).name}</span>
+                                <span className="mx-auto text-slate-500 text-sm">{offices.find(office => office.officialIndices.includes(i)).name}</span>
                             </div>
-                            {official.photoUrl && <img src={official.photoUrl} alt={official.name}></img>}
+                            <img className='max-h-48 mx-auto' src={official.photoUrl ? official.photoUrl : '/no_img_available.jpg'} alt={official.name}></img>
                             <p className="text-slate-500 text-sm">{official.party}</p>
                             </section>
                             <section className="space-y-2">
                             <div className="flex gap-2">
-                                <span className="text-slate-500 text-sm">{`Phone: ${official.phones[0]}`}</span>
+                                <span className="mx-auto text-slate-500 text-sm">{`Phone: ${official.phones[0]}`}</span>
                             </div>
                             <div className="flex gap-2">
-                                <a src={official.urls[0]} className="text-slate-500 text-sm">{`Web: ${official.urls[0]}`}</a>
+                                <a href={official.urls[0]} target="_blank" className="mx-auto text-blue-500 text-sm">{`${official.urls[0].length > 20 ? official.urls[0].substring(0, 30) + '...' : official.urls[0]}`}</a>
                             </div>
                             </section>
                         </div>

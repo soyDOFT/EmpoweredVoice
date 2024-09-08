@@ -15,7 +15,6 @@ export default function Footer() {
     });
   
     const data = await response.json();
-    console.log(data);
   };
 
     return (

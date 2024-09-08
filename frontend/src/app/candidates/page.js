@@ -76,16 +76,16 @@ export default function Page() {
           <div className="card rounded-box grid h-32 flex-grow place-items-center text-secondary text-2xl  ">          
             <h1>Search Candidates running for office in your state</h1>
             <div className="card bg-page rounded-box grid flex-grow place-items-center">
-              <div class="relative mt-6">
+              <div className="relative mt-6">
                 <form onSubmit={handleSubmit}>
-                  <input type="text" placeholder="NC" value={state} onChange={(e) => setState(e.target.value)} class="block w-full rounded-2xl border border-secondary bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"/>
-                  <div class="absolute inset-y-1 right-1 flex justify-end">
-                    <button type="submit" aria-label="Submit" class="flex aspect-square h-full items-center justify-center rounded-xl bg-primary text-white transition hover:bg-secondary">
-                    <svg viewBox="0 0 16 6" aria-hidden="true" class="w-4">
+                  <input type="text" placeholder="NC" value={state} onChange={(e) => setState(e.target.value)} className="block w-full rounded-2xl border border-secondary bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"/>
+                  <div className="absolute inset-y-1 right-1 flex justify-end">
+                    <button type="submit" aria-label="Submit" className="flex aspect-square h-full items-center justify-center rounded-xl bg-primary text-white transition hover:bg-secondary">
+                    <svg viewBox="0 0 16 6" aria-hidden="true" className="w-4">
                       <path
                         fill="currentColor"
-                        fill-rule="evenodd"
-                        clip-rule="evenodd"
+                        fillRule="evenodd"
+                        clipRule="evenodd"
                         d="M16 3 10 .5v2H0v1h10v2L16 3Z"
                       ></path>
                     </svg>

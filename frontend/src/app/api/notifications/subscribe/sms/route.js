@@ -11,7 +11,6 @@ export async function POST(req) {
     }
 
     // Set parameters for subscribing to SNS
-    console.log('sns topic', process.env.SNS_TOPIC_ARN)
     const params = {
       Protocol: 'sms', // Subscription type
       TopicArn: process.env.SNS_TOPIC_ARN, // The SNS topic ARN from your environment variables
