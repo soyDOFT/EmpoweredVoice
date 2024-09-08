@@ -5,25 +5,24 @@ import { sns } from '@/app/_lib/aws';
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { email } = body;
-    console.log('email', email);
-    if (!email) {
-      return NextResponse.json({ error: 'Email is required' }, { status: 400 });
+    const { phoneNumber } = body;
+    if (!phoneNumber) {
+      return NextResponse.json({ error: 'SMS-enabled phone number is required' }, { status: 400 });
     }
 
     // Set parameters for subscribing to SNS
     console.log('sns topic', process.env.SNS_TOPIC_ARN)
     const params = {
-      Protocol: 'email', // Subscription type
+      Protocol: 'sms', // Subscription type
       TopicArn: process.env.SNS_TOPIC_ARN, // The SNS topic ARN from your environment variables
-      Endpoint: email, // The email address to subscribe
+      Endpoint: phoneNumber, // The email address to subscribe
     };
 
     // Subscribe the email to the topic
     const data = await sns.subscribe(params).promise();
-
+    
     return NextResponse.json({
-      message: 'Subscription request sent. Please check your email to confirm the subscription.',
+      message: 'Subscription request sent. Please check your texts to confirm the subscription.',
       data,
     });
   } catch (error) {

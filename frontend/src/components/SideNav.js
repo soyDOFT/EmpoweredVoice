@@ -11,20 +11,16 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   {
-    name: "Home",
-    href: "/account/home",
-    icon: <HomeIcon className="h-5 w-5 text-primary-600" />,
+    name: "Profile",
+    href: "/account/profile",
+    icon: <UserIcon className="h-5 w-5 text-primary-600" />,
   },
   {
     name: "Notifications",
     href: "/account/notifications",
     icon: <CalendarDaysIcon className="h-5 w-5 text-primary-600" />,
   },
-  {
-    name: "Profile",
-    href: "/account",
-    icon: <UserIcon className="h-5 w-5 text-primary-600" />,
-  },
+  
 ];
 
 export default function SideNavigation() {

@@ -34,13 +34,13 @@ export default async function Nav() {
           </div>
           <div className="navbar-end">
             {session?.user ? 
-            <Link className="btn" href="/account">
+            <Link className="btn" href="/account/profile">
               <img className="h-10 rounded-full" 
               src={session.user.image || "\deafult-profile.png"} 
               alt={session.user.name || 'default profile'}
               referrerPolicy='no-referrer'/>
             </Link> 
-            : <Link className="btn text-white border-none bg-primary hover:bg-secondary hover:text-white" href="/account">Login</Link>}
+            : <Link className="btn text-white border-none bg-primary hover:bg-secondary hover:text-white" href="/account/profile">Login</Link>}
           </div>
         </div>
     )

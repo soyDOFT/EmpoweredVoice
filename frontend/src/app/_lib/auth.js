@@ -2,8 +2,6 @@ import NextAuth from "next-auth";
 import Google from "next-auth/providers/google";
 import Credentials from "next-auth/providers/credentials";
 
-let existingUser = {};
-
 const authConfig = {
     providers: [
         Google({
@@ -47,7 +45,7 @@ const authConfig = {
             try {
                 const response = await fetch('http://localhost:8080/api/accounts?email=' + user.email);
                 if (!response.ok) console.error('failed to fetch existing user', response.statusText);
-                existingUser = await response.json();
+                const existingUser = await response.json();
                 console.log('existingUser:', existingUser);
                 if (!existingUser.email) await fetch(`http://localhost:8080/api/accounts/signup/google?firstname=${profile.given_name}&lastname=${profile.family_name}&email=${profile.email}&picture=${profile.picture}`);
                 console.log(!existingUser.email);
@@ -58,8 +56,9 @@ const authConfig = {
             }
         },
         async session({ session, user }) {
-            console.log('session: here');
-            console.log('here3', user)
+            const response = await fetch('http://localhost:8080/api/accounts?email=' + session.user.email);
+            if (!response.ok) console.error('failed to fetch existing user', response.statusText);
+            const existingUser = await response.json();
             session.user.role = existingUser.role;
             return session;
         }
