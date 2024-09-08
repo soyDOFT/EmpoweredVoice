@@ -3,8 +3,6 @@ import { NextResponse } from 'next/server';
 async function getOfficials(address = 'Charlotte NC') {
   try {
     const baseUrl = 'https://civicinfo.googleapis.com/civicinfo/v2/representatives';
-    //'https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=3900%20havenwood%20rd%20charlotte%20NC&includeOffices=true&key=AIzaSyAE51vhVfYMaEDWxBz2h2SIuq3T1NythMU' \
-    //'https://civicinfo.googleapis.com/civicinfo/v2/representatives?address=3900+havenwood+rd+charlotte+NC&includeOffices=true&key=AIzaSyAE51vhVfYMaEDWxBz2h2SIuq3T1NythMU'
 
 
     // Building the API Request URL
@@ -30,14 +28,12 @@ async function getOfficials(address = 'Charlotte NC') {
 export async function POST(req) {
   try {
     const { address } = await req.json();
-    console.log(address);
     if (!address) {
       return NextResponse.json({ error: 'Address is required' }, { status: 400 });
     }
 
     // Handling Multiple Pages
     const data = await getOfficials(address)
-    console.log(data);
     // Constructing the Response
     return NextResponse.json({
       officials: data.officials,

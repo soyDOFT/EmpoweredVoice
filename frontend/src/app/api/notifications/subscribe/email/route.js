@@ -6,13 +6,11 @@ export async function POST(req) {
   try {
     const body = await req.json();
     const { email } = body;
-    console.log('email6543', email);
     if (!email) {
       return NextResponse.json({ error: 'Email is required' }, { status: 400 });
     }
 
     // Set parameters for subscribing to SNS
-    console.log('sns topic', process.env.SNS_TOPIC_ARN)
     const params = {
       Protocol: 'email', // Subscription type
       TopicArn: process.env.SNS_TOPIC_ARN, // The SNS topic ARN from your environment variables

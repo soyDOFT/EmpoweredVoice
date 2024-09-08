@@ -11,7 +11,6 @@ export default function Countdown() {
       function calcCounter() {
         const now = new Date();
         const difference = electionDate - now;
-        console.log(difference);
 
         if (difference > 0) {
           const days = Math.floor(difference / (1000 * 60 * 60 * 24));
