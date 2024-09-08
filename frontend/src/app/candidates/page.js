@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Countdown from '@/components/Countdown';
 
 
@@ -16,6 +16,35 @@ export default function Page() {
     { name: 'Chase Oliver', party: 'Libertarian', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/chase-oliver.png', description: 'Libertarian candidate for President in 2024.', keyPositions: 'Advocates for simplifying immigration processes, reducing US involvement in foreign conflicts, decriminalizing marijuana and other drugs, and eliminating the Federal Reserve.'},
     { name: 'Jill Stein', party: 'Green', state: 'MA', office: 'President', imageUrl: '/presidential-candidates/jill-stein.jpg', description: 'Former Green Party candidate for President and environmental activist.', keyPositions: 'Proposes aggressive climate action, free public education, canceling medical debt, and reforming the Supreme Court with term limits and increased seats.'},
   ];
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    const stateParam = params.get('state');
+    if (stateParam) {
+      console.log(stateParam);
+      handleLoad(stateParam);
+    }
+  }, []);
+
+  const handleLoad = async (state) => {
+    setLoading(true);
+    setError(null);
+    try {
+      const res = await fetch('/api/fec', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ state }),
+      });
+      const data = await res.json();
+      setCandidates(data.candidates);
+    } catch (err) {
+      setError('Error fetching candidates. Please try again.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
