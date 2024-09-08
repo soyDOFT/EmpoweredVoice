@@ -1,5 +1,4 @@
 'use client';
-import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Footer() {
@@ -7,7 +6,7 @@ export default function Footer() {
 
   async function handleSubscribe(e) {
     e.preventDefault();
-    const response = await fetch('/api/notifications/subscribe', {
+    const response = await fetch('/api/notifications/subscribe/email', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

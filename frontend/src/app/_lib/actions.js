@@ -41,11 +41,11 @@ export async function credSignIn(prevState, formData) {
     console.log('no errors');
 
     console.log('signing in...')
-    await signIn('credentials', { redirectTo: "/account", email, password });
+    await signIn('credentials', { redirectTo: "/account/profile", email, password });
 }
 
 export async function googleSignInAction() {
-    await signIn('google', { redirectTo: "/account" });
+    await signIn('google', { redirectTo: "/account/profile" });
 }
 
 export async function signOutAction() {
@@ -82,7 +82,7 @@ export async function signup(prevState, formData) {
     console.log(hashedPassword)
     await fetch(`http://localhost:8080/api/accounts/signup?email=${email}&password=${hashedPassword}`)
 
-    redirect('/account');
+    redirect('/account/profile');
 }
 
 export async function updateClient(formData) {
@@ -105,5 +105,62 @@ export async function updateClient(formData) {
         throw new Error("Guest could not be updated");
     }
 
-    revalidatePath("/account");
+    revalidatePath("/account/profile");
   }
+
+  export async function subscribeSNS(formData) {
+    console.log('SUBSCRIBED')
+    console.log('formDaTA:', formData);
+    const session = await auth();
+    console.log(session?.user);
+
+    try {
+
+        if (formData.get('election-email')) {
+            const response = await fetch('http://localhost:3000/api/notifications/subscribe/email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: session.user.email }),
+            });
+            if (!response.ok) {
+                console.log('error resopnse:', response)
+            }
+            const data = await response.json();
+            console.log(data);
+        } 
+        
+        if (formData.get('election-sms')) {
+            const formattedPhoneNumber = '+1' + phoneNumber;
+            const response = await fetch('http://localhost:3000/api/notifications/subscribe/sms', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ formattedPhoneNumber }),
+            });
+            const data = await response.json();
+            console.log(data);
+        }
+    } catch (err) {
+        console.error('Error Subscribing:', err)
+    }
+  }
+
+  export async function messageSNS(formData) {
+    console.log('MESSAGE...');
+
+    const subject = formData.get('subject');
+    const message = formData.get('message');
+
+    const response = await fetch('http://localhost:3000/api/notifications/send', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ subject, message }),
+        });
+    const data = await response.json();
+    console.log('NOTIF SENT', data);    
+}

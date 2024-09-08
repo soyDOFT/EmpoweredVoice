@@ -1,12 +1,8 @@
 "use client";
-
-import { useState } from "react";
 import { updateClient } from "@/app/_lib/actions";
 import SubmitButton from "@/components/SubmitButton";
 
 export default function AccountUpdateForm({ client }) {
-  const [count, setCount] = useState();
-
   const { first_name, last_name, email, state, city } = client;
 
   return (
@@ -15,31 +11,34 @@ export default function AccountUpdateForm({ client }) {
       className="bg-primary-900 py-8 px-12 text-lg flex gap-6 flex-col"
     >
       <div className="space-y-2">
-        <label>First Name</label>
+        <label htmlFor="firstName">First Name</label>
         <input
           disabled
           defaultValue={first_name}
           name="firstName"
+          id="firstName"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
         />
       </div>
 
       <div className="space-y-2">
-        <label>Last Name</label>
+        <label htmlFor="lastName">Last Name</label>
         <input
           disabled
           defaultValue={last_name}
           name="lastName"
+          id="lastName"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
         />
       </div>
 
       <div className="space-y-2">
-        <label>Email address</label>
+        <label htmlFor="email">Email address</label>
         <input
           disabled
           defaultValue={email}
           name="email"
+          id="email"
           className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"
         />
       </div>
@@ -49,6 +48,7 @@ export default function AccountUpdateForm({ client }) {
           <input
             defaultValue={state}
             name="state"
+            id="state"
             className="px-5 py-3 bg-primary-200 text-primary-800 w-full shadow-sm rounded-sm"
           />
       </div>
