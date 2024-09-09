@@ -7,16 +7,19 @@ export default function AccountUpdateForm({ client }) {
   const [ lastName, setLastName ] = useState(client.last_name);
   const [ state, setState ] = useState(client.state || '');
   const { pending } = useFormStatus();
+  const [ updated, setUpdated ] = useState(false);
 
   async function updateHandler(e) {
     e.preventDefault();    
     try {
         const url = `${process.env.NEXT_PUBLIC_BACKEND_URL}/api/update/account?firstName=${firstName}&lastName=${lastName}&state=${encodeURIComponent(state)}&email=${client.email}`;
-        const result = await fetch(url);
-        const answer = await result.json();
+        await fetch(url);
     } catch (err) {
         throw new Error("Profile could not be updated");
     }
+
+    setUpdated(true);
+    setTimeout(() => setUpdated(false), 3000)
   }
 
   const usaStates = [
@@ -70,7 +73,7 @@ export default function AccountUpdateForm({ client }) {
       </div>
 
       <div className="space-y-2">
-          <label htmlFor="state">What state are you from?</label>
+          <label htmlFor="state">Which state do you live in?</label>
           <select 
             value={state}
             onChange={(e) => setState(e.target.value)}
@@ -78,7 +81,7 @@ export default function AccountUpdateForm({ client }) {
             id="state"
             className="px-5 py-3 bg-white text-primary-800 w-full shadow-sm rounded-sm"
             >
-              <option className="text-primary-800 font-semibold font-sans" value={null}>Select a Country</option>
+              <option className="text-primary-800 font-semibold font-sans" value={null}>Select a State</option>
             {usaStates.map((state) => 
               <option className="text-primary-800 font-sans" key={state} value={state}>{state}</option>
             )}
@@ -86,6 +89,7 @@ export default function AccountUpdateForm({ client }) {
       </div>
 
       <div className="flex justify-end items-center gap-6">
+        { updated && <p className="text-primary-800 font-semibold text-primary">Form successfully updated</p>}
         <input
         type="submit"
         className="btn bg-accent-500 px-8 py-4 text-primary-800 font-semibold hover:bg-accent-600 transition-all disabled:cursor-not-allowed disabled:bg-gray-500 disabled:text-gray-300"

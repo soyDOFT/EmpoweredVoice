@@ -1,6 +1,5 @@
 'use server';
 import { redirect } from 'next/navigation';
-import { revalidatePath } from 'next/cache';
 import { auth, signIn, signOut } from '@/app/_lib/auth'
 import { hashPassword, verifyPassword } from './hash';
 
@@ -79,8 +78,6 @@ export async function signup(prevState, formData) {
     redirect('/account/profile');
 }
 
-
-
 export async function subscribeSNS(formData) {
     const session = await auth();
 
@@ -101,6 +98,7 @@ export async function subscribeSNS(formData) {
         } 
         
         if (formData.get('election-sms')) {
+            const phoneNumber = formData.get('phoneNumber');
             const formattedPhoneNumber = '+1' + phoneNumber;
             const response = await fetch(`${process.env.NEXTAUTH_URL}/api/notifications/subscribe/sms`, {
                 method: 'POST',
