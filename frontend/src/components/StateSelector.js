@@ -67,6 +67,7 @@ export default function StateSelector({ onSelect }) {
         onSelect(e.target.value);
       }}
       value={selectedState}
+      required
     >
       <option value="">Select a state</option>
       {states.map((state) => (
