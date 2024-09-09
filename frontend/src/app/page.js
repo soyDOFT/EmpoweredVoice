@@ -31,15 +31,15 @@ export default function Home() {
         </div>
         <img src="/home-images/statue-3.png" alt="hero-image" className="object-contain h-[100%] phoneMax:mt-24  320Max:mt-40" />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 mt-10 mb-12 ml-24  phoneMax:ml-20 phoneMax:px-0 phoneMax:mb-0  mobileS:gap-9 place-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 mt-10 mb-12 ml-24 375Max:ml-12  phoneMax:ml-20 phoneMax:px-0 phoneMax:mb-0  mobileS:gap-9 place-items-center">
         <Link href="/about" className="w-full">
           <Card 
             title="Protect the freedom to Vote" 
-            paragraph="Ensure all Americans have the equal opportunity to exercise their right to vote." 
+            paragraph="Lear more about `Empowered Voice` and our mission to protect the freedom to vote."
             image="/home-images/vote.jpg" 
           />
         </Link>
-        <Link href="/civics" className="w-full">
+        <Link href="/elections" className="w-full">
           <Card 
             title="Learn about more about Elections" 
             paragraph="Inform our voters and help make our elections more free, fair, and equitable." 
