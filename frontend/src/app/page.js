@@ -24,14 +24,14 @@ export default function Home() {
             <h1 className="text-6xl text-white font-bold mb-6 500Max:text-5xl 400max:text-4xl 400max:text-center">
               EMPOWERED VOICE
             </h1>
-            <p className="py-8 text-white leading-7">
+            <p className="py-8 text-white text-xl leading-7">
               Empowered Voice is a nonpartisan platform committed to enhancing voter knowledge and participation in North Carolina. Our mission is to provide accurate and accessible voting information to help citizens make informed choices at the polls. Through education, outreach, and advocacy, we aim to empower every voter and strengthen our democracy, ensuring that all voices are heard and represented in the electoral process.
             </p>
           </div>
         </div>
-        <img src="/home-images/statue-3.png" alt="hero-image" className="object-contain h-[100%] phoneMax:mt-24 320Max:mt-40" />
+        <img src="/home-images/statue-3.png" alt="hero-image" className="object-contain h-[100%] phoneMax:mt-24  320Max:mt-40" />
       </div>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 mt-10 mb-12 ml-24 mobileS:gap-9 place-items-center">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 mt-10 mb-12 ml-24  phoneMax:ml-20 phoneMax:px-0 phoneMax:mb-0  mobileS:gap-9 place-items-center">
         <Link href="/about" className="w-full">
           <Card 
             title="Protect the freedom to Vote" 
@@ -41,7 +41,7 @@ export default function Home() {
         </Link>
         <Link href="/civics" className="w-full">
           <Card 
-            title="Improve elections" 
+            title="Learn about more about Elections" 
             paragraph="Inform our voters and help make our elections more free, fair, and equitable." 
             image="/home-images/improve-elections.jpg" 
           />
@@ -61,7 +61,7 @@ export default function Home() {
           />
         </Link>
       </div>
-      <section data-aos='fade-up' className="join-section flex flex-row justify-center items-center py-12 w-screen h-screen max:flex-col">
+      <section data-aos='fade-up' className="join-section flex flex-row justify-center items-center py-12 w-screen h-screen max:flex-col phoneMax:h-[95vh]">
         <div className="container bg-offwhite h-56 w-2/6 shadow-[-16px_15px_0px_0px_#0368fe;] ml-[10%] md:h-fit phoneMax:h-fit max:w-4/5 max:mb-12">
           <h2 className="text-4xl text-secondary font-bold text-center max:max-w-[75vmin] mt-10">
             Explore Voting Information

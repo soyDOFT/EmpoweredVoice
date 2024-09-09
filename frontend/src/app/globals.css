@@ -1,23 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Anton+SC&family=Prata&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400..700;1,400..700&family=Jost:ital,wght@0,100..900;1,100..900&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "Cabin", system-ui;
+
+}
 html {
   scroll-behavior: smooth;
+
 }
 
 body {
     background-color: #eef3f6;
 }
-.font-Prata {
-    font-family: 'Prata', serif;
-  }
-  
-  .font-AntonSC {
-    font-family: 'Anton SC', sans-serif;
-  }
+
+p {
+    font-family: "Jost", system-ui;
+}
 
   .navbar {
     width: 100%;

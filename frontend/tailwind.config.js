@@ -8,7 +8,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        'hero-paper': "url('/paper.png')",
+        'hero-paper': "url('/about-images/paper.png')",
+        'hero-paper-tablet': "url('/about-images/paper-tablet.png')",
+        'hero-paper-mobile': "url('/about-images/paper-phone.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
@@ -24,6 +26,7 @@ module.exports = {
         'mobileS': '320px', 
         'max': {'max': '768px'},
         'phoneMax': {'max': '480px'},
+        '655Max': {'max': '655px'},
         '500Max': {'max': '500px'},
         '400max': {'max': '400px'},
         '320Max': {'max': '320px'},
