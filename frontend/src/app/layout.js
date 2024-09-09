@@ -8,7 +8,7 @@ import ChatPopup from "@/components/chat/ChatPopup";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "Empowered Voice",
+  title: "Empowered Voice"
 }
 
 export default function RootLayout({ children }) {
