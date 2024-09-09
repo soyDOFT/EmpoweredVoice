@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Countdown from '@/components/Countdown';
+import StateSelector from '@/components/StateSelector';
 
 
 export default function Page() {
@@ -108,7 +109,7 @@ export default function Page() {
             <div className="card bg-page rounded-box grid flex-grow place-items-center">
               <div className="relative mt-6">
                 <form onSubmit={handleSubmit}>
-                  <input type="text" placeholder="NC" value={state} onChange={(e) => setState(e.target.value)} className="block w-full rounded-2xl border border-secondary bg-transparent py-4 pl-6 pr-20 text-base/6 text-neutral-950 ring-4 ring-transparent transition placeholder:text-neutral-500 focus:border-neutral-950 focus:outline-none focus:ring-neutral-950/5"/>
+                  <StateSelector onSelect={(value) => setState(value)} />
                   <div className="absolute inset-y-1 right-1 flex justify-end">
                     <button type="submit" aria-label="Submit" className="flex aspect-square h-full items-center justify-center rounded-xl bg-primary text-white transition hover:bg-secondary">
                     <svg viewBox="0 0 16 6" aria-hidden="true" className="w-4">
