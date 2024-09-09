@@ -5,7 +5,7 @@ export default async function Nav() {
   const session = await auth();
 
     return (
-        <div className="navbar bg-page opacity-80">
+        <div className="navbar bg-page opacity-80 z-[999]">
           <div className="navbar-start">
             <div className="dropdown">
               <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -18,6 +18,7 @@ export default async function Nav() {
                 <li><Link href="/elections">Elections</Link></li>
                 <li><Link href="/register">Register</Link></li>
                 <li><Link href="/about">About</Link></li>
+                <li><Link href="/faq">FAQ</Link></li>
               </ul>
             </div>
             <Link className=" text-xl" href="/">
@@ -30,6 +31,8 @@ export default async function Nav() {
               <li><Link href="/elections">Elections</Link></li>
               <li><Link href="/register">Register</Link></li>
               <li><Link href="/about">About</Link></li>
+              <li><Link href="/faq">FAQ</Link></li>
+
             </ul>
           </div>
           <div className="navbar-end">

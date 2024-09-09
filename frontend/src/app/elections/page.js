@@ -65,8 +65,8 @@ export default function Page() {
     }
 
     return (
-        <div className="bg-page text-gray-900 min-h-screen">
-            <nav className="sticky top-0 bg-[#F2F6F8] shadow-md z-10">
+        <div className="bg-page text-primary min-h-screen">
+            <nav className="sticky top-0 bg-[#F2F6F8] shadow-md ">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex space-x-8">
@@ -128,7 +128,7 @@ export default function Page() {
                         {officials.map((official, i) => (
                             <div key={official.name + official.phones[0]} className="bg-white shadow-md rounded-lg overflow-hidden">
                                 <div className="p-6">
-                                    <h3 className="text-xl font-bold text-gray-800 mb-2">{official.name}</h3>
+                                    <h3 className="text-xl font-bold text-primary mb-2">{official.name}</h3>
                                     <p className="text-sm text-gray-600 mb-4">{offices.find(office => office.officialIndices.includes(i)).name}</p>
                                     <img className='w-full h-48 object-cover mb-4 rounded' src={official.photoUrl || '/no_img_available.jpg'} alt={official.name} />
                                     <p className="text-sm text-gray-700 mb-2">{official.party}</p>
