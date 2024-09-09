@@ -11,10 +11,10 @@ export default function Page() {
   const [state, setState] = useState('');
 
   const currentPresidentialCandidates = [
-    { name: 'Kamala Harris', party: 'Democratic', state: 'CA', office: 'President', imageUrl: '/presidential-candidates/kamala.webp', description: 'Current Vice President of the United States.',keyPositions: 'Supports strengthening the middle class, expanding access to affordable healthcare, advocating for gun control measures, and protecting the rights of workers to unionize.'},
-    { name: 'Donald Trump', party: 'Republican', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/donald-trump.jpg', description: 'Former President of the United States.', keyPositions: 'Plans to reduce the size of the federal government, reform federal agencies, adjust social safety net programs, and has expressed intent to investigate alleged political corruption.'},
-    { name: 'Chase Oliver', party: 'Libertarian', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/chase-oliver.png', description: 'Libertarian candidate for President in 2024.', keyPositions: 'Advocates for simplifying immigration processes, reducing US involvement in foreign conflicts, decriminalizing marijuana and other drugs, and eliminating the Federal Reserve.'},
-    { name: 'Jill Stein', party: 'Green', state: 'MA', office: 'President', imageUrl: '/presidential-candidates/jill-stein.jpg', description: 'Former Green Party candidate for President and environmental activist.', keyPositions: 'Proposes aggressive climate action, free public education, canceling medical debt, and reforming the Supreme Court with term limits and increased seats.'},
+    { name: 'Kamala Harris', party: 'Democratic', state: 'CA', office: 'President', imageUrl: '/presidential-candidates/kamala.webp', description: 'Current Vice President of the United States.',keyPositions: 'Supports strengthening the middle class, expanding access to affordable healthcare, advocating for gun control measures, and protecting the rights of workers to unionize.',link: 'https://kamalaharris.com/'},
+    { name: 'Donald Trump', party: 'Republican', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/donald-trump.jpg', description: 'Former President of the United States.', keyPositions: 'Plans to reduce the size of the federal government, reform federal agencies, adjust social safety net programs, and has expressed intent to investigate alleged political corruption.', link: 'https://www.donaldjtrump.com/'},
+    { name: 'Chase Oliver', party: 'Libertarian', state: 'FL', office: 'President', imageUrl: '/presidential-candidates/chase-oliver.png', description: 'Libertarian candidate for President in 2024.', keyPositions: 'Advocates for simplifying immigration processes, reducing US involvement in foreign conflicts, decriminalizing marijuana and other drugs, and eliminating the Federal Reserve.', link: 'https://votechaseoliver.com/'},
+    { name: 'Jill Stein', party: 'Green', state: 'MA', office: 'President', imageUrl: '/presidential-candidates/jill-stein.jpg', description: 'Former Green Party candidate for President and environmental activist.', keyPositions: 'Proposes aggressive climate action, free public education, canceling medical debt, and reforming the Supreme Court with term limits and increased seats.', link: 'https://www.jillstein2024.com/'},
   ];
 
   const handleSubmit = async (e) => {
@@ -66,6 +66,7 @@ export default function Page() {
             <div className="absolute inset-0 bg-white flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
               <h3 className="text-secondary text-xl font-bold">Key Policy issues</h3>
               <p className="text-black text-lg mt-2 px-4 text-center">{candidate.keyPositions}</p>
+              <a href={candidate.link} target='blank' className='btn w-full sm:w-auto rounded-xl  text-white border-none bg-primary mt-4 max:mt-20 text-xl hover:bg-[#1803fe] h-12'>Learn more</a>
             </div>
           </div>
         ))}
