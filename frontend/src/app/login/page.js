@@ -17,11 +17,11 @@ export default function Page() {
                         <div className="border-b border-gray-900/10 pb-12">
                         <h2 className="text-4xl font-semibold leading-7 text-secondary">Login</h2>
                         {credSignInState.errors && (
-                        <ul>
+                        <ul className='mt-3'>
                             {Object.keys(credSignInState.errors).map((err) => <li className='text-red-600' key={err}>{credSignInState.errors[err]}</li>)}
                         </ul>
                         )}
-                        <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                        <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                             <TextInput label='Email' placeholder='example@example.com'/>
                             <PasswordInput/>                          
                             <div className="mt-24 flex items-center justify-end gap-x-6">
@@ -31,11 +31,11 @@ export default function Page() {
                                 >Login</button>
                             </div>
                         </div>
-                        <Link href="/signup" className=' text-secondary text-md hover:underline hover:text-primary'>Don't have an Account? Create one!</Link>
+                        <Link href="/signup" className='text-secondary text-md hover:underline hover:text-primary'>Don't have an Account? Create one!</Link>
                         </div>
                     </div>
                 </form>
-                <GoogleLoginButton/>
+                <GoogleLoginButton />
             </div>
         </div>
     )
