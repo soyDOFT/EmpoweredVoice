@@ -10,7 +10,7 @@ export default function AboutPage() {
             <h1 className="text-6xl text-page font-bold mb-6 500Max:text-5xl 400max:text-4xl 400max:text-center">
               Who we are
             </h1>
-            <p className="py-8 text-page text-xl leading-7 phoneMax:text-[1.1rem]">
+            <p className="py-8 text-page text-xl leading-7 phoneMax:text-[1.1rem] 400max:leading-[1.3]">
               Empowered Voice is a nonpartisan platform committed to enhancing voter knowledge and participation in North Carolina. Our mission is to provide accurate and accessible voting information to help citizens make informed choices at the polls. Through education, outreach, and advocacy, we aim to empower every voter and strengthen our democracy, ensuring that all voices are heard and represented in the electoral process.
             </p>
           </div>
@@ -33,7 +33,7 @@ export default function AboutPage() {
       </div>
         <div className="flex flex-col items-center justify-center my-24 320Max:mt-28">
         <h2 className="text-4xl font-bold mb-3 border-b-4 border-primary">What we do</h2>
-      <p className="text-lg leading-7 max-w-[75vmin]">
+      <p className="text-lg leading-7 max-w-[75vmin] ">
       Our mission is to empower every voter with the knowledge and tools they need to confidently participate in elections. We provide accurate and accessible voting information to help citizens make informed choices, strengthening our democracy and ensuring that all voices are heard and represented in the electoral process.
       </p>
         </div>

@@ -66,11 +66,11 @@ const FAQItem = ({ question, answer, isOpen, toggleOpen }) => {
         className="flex justify-between items-center w-full py-5 text-left"
         onClick={toggleOpen}
         aria-expanded={isOpen}
-      >
+      >{question}
       </button>
       {isOpen && (
         <div className="pb-5 pr-12">
-          <p className="text-base text-gray-500">{answer}</p>
+          <p className="text-base text-primary">{answer}</p>
         </div>
       )}
     </div>
@@ -89,7 +89,7 @@ export default function FAQPage() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <header className="bg-blue-600 text-white py-12">
+      <header className="bg-blue-600 text-secondary py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-center">Voting FAQ</h1>
           <p className="mt-2 text-xl text-center">Get answers to your voting questions</p>
