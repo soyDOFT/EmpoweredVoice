@@ -10,7 +10,6 @@ export default function Page() {
     const [address, setAddress] = useState('');
     const [electionDates, setElectionDates] = useState([])
     const [state, setState] = useState('');
-    const [location, setLocation] = useState('');
 
     const stateAbbr = {
         AL: 'Alabama', AK: 'Alaska', AZ: 'Arizona', AR: 'Arkansas', CA: 'California',
@@ -70,11 +69,15 @@ export default function Page() {
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
                         <div className="flex space-x-8">
+                            
                             <a href='#urgent-dates' className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-secondary hover:text-primary hover:border-primary">
-                                Key Dates
+                                Urgent Dates
                             </a>
                             <a href='#general-info' className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-secondary hover:text-primary hover:border-primary">
                                 General Information
+                            </a>
+                            <a href='#key-days' className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-secondary hover:text-primary hover:border-primary">
+                                Key Days
                             </a>
                             <a href='#candidates' className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-secondary hover:text-primary hover:border-primary">
                                 Candidates
@@ -178,8 +181,8 @@ export default function Page() {
                     </div>
                 </section>
 
-                <section id="key-dates" className="my-8">
-                    <h2 className="text-2xl font-semibold mb-4 text-gray-800">Key Dates</h2>
+                <section id="key-days" className="my-8">
+                    <h2 className="text-2xl font-semibold mb-4 text-gray-800">Key Days</h2>
                     <div className="bg-white shadow-md rounded-lg p-6">
                         <ul className="list-disc list-inside space-y-2 text-gray-700">
                             <li>
@@ -215,10 +218,10 @@ export default function Page() {
                     <div className="bg-white shadow-md rounded-lg p-6">
                         <ul className="space-y-4">
                             <li>
-                                <a href="https://www.vote.gov" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                                    Vote.gov
+                                <a href="https://www.fec.gov/" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                                    Federal Election Commision 
                                 </a>
-                                <p className="text-gray-700">Official website providing information on how to register and vote.</p>
+                                <p className="text-gray-700">Official website for the independent regulatory agency involving federal campaigns of the United States of America.</p>
                             </li>
                             <li>
                                 <a href="https://www.fvap.gov" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
