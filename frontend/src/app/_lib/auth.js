@@ -35,7 +35,7 @@ const authConfig = {
                 const response = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/accounts?email=${user.email}`);
                 if (!response.ok) console.error('failed to fetch existing user', response.statusText);
                 const existingUser = await response.json();
-                if (!existingUser.email) await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/accounts/signup/google?firstname=${profile.given_name}&lastname=${profile.family_name}&email=${profile.email}&picture=${profile.picture}`);
+                if (!existingUser.email) await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/api/accounts/signup/google?firstname=${profile.given_name}&lastname=${profile.family_name || ''}&email=${profile.email}&picture=${profile.picture}`);
                 return true;
             } catch {
                 console.log('ERROR LOGGING IN')
