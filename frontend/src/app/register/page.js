@@ -7,7 +7,7 @@ function page() {
 
     return (
         <>
-            <div className="voteamerica-embed" data-subscriber="public" data-tool="register"></div>
+            <div className="voteamerica-embed 320Max:mt-32" data-subscriber="public" data-tool="register"></div>
         </>
     )
 }

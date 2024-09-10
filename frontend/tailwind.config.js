@@ -9,7 +9,7 @@ module.exports = {
     extend: {
       backgroundImage: {
         "hero-paper": "url('/about-images/paper.png')",
-        "Hero-paper-tablet": "url('/about-images/paper-tablet.png')",
+        "hero-paper-tablet": "url('/about-images/paper-tablet.png')",
         "hero-paper-mobile": "url('/about-images/paper-phone.png')",
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
