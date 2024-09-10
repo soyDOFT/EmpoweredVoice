@@ -50,7 +50,7 @@ export default function Page() {
             setOffices(civicData.offices);
             setState(stateAbbr[civicData.normalizedInput.state]);
         } catch (err) {
-            setError('Error finding address. Please try again.');
+            setError('Error finding address. Please try being more specific.');
         } finally {
             setLoading(false);
             getDates();
