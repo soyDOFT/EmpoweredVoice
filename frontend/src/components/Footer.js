@@ -1,5 +1,7 @@
 'use client';
+
 import { useState } from 'react';
+import Link from 'next/link';
 
 export default function Footer() {
   const [email, setEmail] = useState('');
@@ -26,10 +28,13 @@ export default function Footer() {
   </aside>
   <nav>
     <h6 className="footer-title">Company</h6>
-    <a className="link link-hover">About us</a>
-    <a className="link link-hover">Contact</a>
-    <a className="link link-hover">Jobs</a>
-    <a className="link link-hover">Press kit</a>
+    <Link href='/' className="link link-hover">Home</Link>
+    <Link href='/candidates' className="link link-hover">Candidates</Link>
+    <Link href='/elections' className="link link-hover">Elections</Link>
+    <Link href='/register' className="link link-hover">Register</Link>
+    <Link href='/about' className="link link-hover">About</Link>
+    <Link href='/faq' className="link link-hover">FAQ</Link>
+
   </nav>
   <nav>
     <h6 className="footer-title">Legal</h6>

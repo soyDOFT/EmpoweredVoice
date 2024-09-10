@@ -88,8 +88,8 @@ export default function FAQPage() {
   }
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <header className="bg-blue-600 text-secondary py-12">
+    <div className="min-h-screen bg-gray-50 mt-28">
+      <header className="bg-secondary text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h1 className="text-4xl font-bold text-center">Voting FAQ</h1>
           <p className="mt-2 text-xl text-center">Get answers to your voting questions</p>
@@ -102,7 +102,7 @@ export default function FAQPage() {
             href="https://www.vote.gov"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-red-600 text-white font-bold py-3 px-6 rounded-full text-lg hover:bg-red-700 transition duration-300"
+            className="btn bg-primary text-white font-bold py-3 px-6 rounded-full text-lg hover:bg-[#1803fe] transition duration-300"
           >
             Register to Vote
           </a>
