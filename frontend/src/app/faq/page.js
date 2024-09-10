@@ -110,7 +110,7 @@ export default function FAQPage() {
 
         <section className="mb-12">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Top 10 Questions</h2>
-          <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+          <div className="bg-white shadow overflow-hidden sm:rounded-lg pl-4">
             {TopQuestions.map((faq, index) => (
               <FAQItem
                 key={index}
@@ -125,7 +125,7 @@ export default function FAQPage() {
 
         <section>
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Other Common Questions</h2>
-          <div className="bg-white shadow overflow-hidden sm:rounded-lg">
+          <div className="bg-white shadow overflow-hidden sm:rounded-lg pl-4">
             {OtherQuestions.map((faq, index) => (
               <FAQItem
                 key={index}
