@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "cypress:open": "cypress open"
   },
   "dependencies": {
     "@ai-sdk/openai": "^0.0.56",
@@ -28,6 +29,7 @@
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.5.0",
     "@testing-library/react": "^16.0.1",
+    "cypress": "^13.14.2",
     "daisyui": "^4.12.10",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
