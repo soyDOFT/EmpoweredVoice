@@ -50,7 +50,7 @@ export default function Page() {
             setOffices(civicData.offices);
             setState(stateAbbr[civicData.normalizedInput.state]);
         } catch (err) {
-            setError('Error finding address. Please try again.');
+            setError('Error finding address. Please try being more specific.');
         } finally {
             setLoading(false);
             getDates();
@@ -140,7 +140,7 @@ export default function Page() {
                                 <div className="p-6">
                                     <h3 className="text-xl font-bold text-primary mb-2">{official.name}</h3>
                                     <p className="text-sm text-gray-600 mb-4">{offices.find(office => office.officialIndices.includes(i)).name}</p>
-                                    <img className='w-full h-48 object-cover mb-4 rounded' src={official.photoUrl || '/no_img_available.jpg'} alt={official.name} />
+                                    <img className='w-full h-48 object-cover mb-4 rounded' src={official.photoUrl || '/no_img_available.jpg'} alt={official.name} onError={(e) => {e.target.src = '/no_img_available.jpg'}}/>
                                     <p className="text-sm text-gray-700 mb-2">{official.party}</p>
                                     {official.phones[0] && (
                                         <p className="text-sm text-gray-700 mb-2">Phone: {official.phones[0]}</p>
