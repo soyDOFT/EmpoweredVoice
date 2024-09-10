@@ -71,10 +71,10 @@ export default function Page() {
 
     return (
         <div className="bg-page text-primary min-h-screen">
-            <nav className="sticky top-0 bg-[#F2F6F8] shadow-md ">
+            <nav className="sticky top-28 bg-[#F2F6F8] shadow-md mb-24 375Max:top-36 375Max:mb-32">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between h-16">
-                        <div className="flex space-x-8">
+                        <div className="flex space-x-8 flex-wrap">
                             
                             <a href='#urgent-dates' className="inline-flex items-center px-1 pt-1 border-b-2 border-transparent text-sm font-medium text-secondary hover:text-primary hover:border-primary">
                                 Urgent Dates

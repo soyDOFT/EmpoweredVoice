@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function AboutPage() {
     return (
         <>
-      <header className="bg-hero-paper h-[86vh] w-full  max:bg-hero-paper-tablet phoneMax:bg-hero-paper-mobile phoneMax:h-[100vh] relative z-0">
+      <header className="bg-hero-paper h-[86vh] w-full  max:bg-hero-paper-tablet phoneMax:bg-hero-paper-mobile phoneMax:h-[116vh] relative">
         <div className="hero-content text-start mb-1 absolute bottom-40 phoneMax:bottom-[24rem] left-[55%] max:left-[25%]">
           <div className="h-[50vh] p-5 w-[70%] px-4 text-center">
             <h1 className="text-6xl text-page font-bold mb-6 500Max:text-5xl 400max:text-4xl 400max:text-center">
