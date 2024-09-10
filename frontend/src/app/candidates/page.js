@@ -70,7 +70,7 @@ export default function Page() {
 
   return (
     <>
-      <div className="flex w-full flex-col">
+      <div className="flex w-full flex-col 320Max:mt-36">
         <div className="candidate-hero flex flex-col justify-center items-center text-white text-2xl h-48">
         <h2 className='text-7xl text-center font-bold mb-8 phoneMax:text-5xl'>Countdown to the <br></br>2024 presidential election</h2>
         <Countdown />

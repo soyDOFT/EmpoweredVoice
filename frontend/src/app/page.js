@@ -18,7 +18,7 @@ export default function Home() {
 
   return (
     <>
-      <div className="main-text flex flex-row items-center justify-center bg-secondary h-[76vh] w-screen max:flex-wrap max:h-fit">
+      <div className="main-text flex flex-row items-center justify-center bg-secondary h-[76vh] w-screen max:flex-wrap max:h-fit max:mt-28 320Max:mt-40">
         <div className="hero-content text-start mb-1 relative left-20 max:left-0">
           <div className="h-[50vh] p-5 w-[70%] px-4">
             <h1 className="text-6xl text-white font-bold mb-6 500Max:text-5xl 400max:text-4xl 400max:text-center">
