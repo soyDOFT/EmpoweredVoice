@@ -34,7 +34,7 @@ export default function Home() {
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 px-2 mt-10 mb-12 ml-24 375Max:ml-12  phoneMax:ml-20 phoneMax:px-0 phoneMax:mb-0  mobileS:gap-9 place-items-center">
         <Link href="/about" className="w-full">
           <Card 
-            title="Protect the freedom to Vote" 
+            title="About Us" 
             paragraph="Lear more about `Empowered Voice` and our mission to protect the freedom to vote."
             image="/home-images/vote.jpg" 
           />
