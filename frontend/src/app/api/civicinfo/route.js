@@ -38,9 +38,9 @@ export async function POST(req) {
     return NextResponse.json({
       officials: data.officials,
       offices: data.offices,
-      totalResults: data.officials.length,
+      totalResults: data.officials?.length,
       currentPage: 1,
-      totalPages: Math.ceil(data.officials.length / 20),
+      totalPages: Math.ceil(data.officials?.length / 20),
       hasMorePages: true,
       normalizedInput: data.normalizedInput
     });

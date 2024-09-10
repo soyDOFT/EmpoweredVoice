@@ -40,6 +40,12 @@ export default function Page() {
               body: JSON.stringify({ address }),
             });
             const civicData = await response.json();
+            if (civicData.errors) {
+                setError('Error finding address. Please try again.')
+                return;
+            } else {
+                setError('');
+            }
             setOfficials(civicData.officials);
             setOffices(civicData.offices);
             setState(stateAbbr[civicData.normalizedInput.state]);
@@ -127,7 +133,7 @@ export default function Page() {
                     </div>
                 )}
 
-                {officials.length > 0 && (
+                {officials?.length > 0 && (
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 my-8">
                         {officials.map((official, i) => (
                             <div key={official.name + official.phones[0]} className="bg-white shadow-md rounded-lg overflow-hidden">
